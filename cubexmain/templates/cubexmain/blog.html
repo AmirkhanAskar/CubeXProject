@@ -1,0 +1,507 @@
+<!DOCTYPE html><!-- Last Published: Thu Mar 09 2023 13:47:58 GMT+0000 (Coordinated Universal Time) -->
+<html data-wf-domain="cubex-template.webflow.io" data-wf-page="63f6cf348b9da1f13a71d9e2" data-wf-site="63d8bb043a5c9071ccfdd0cc">
+   <head>
+      <meta charset="utf-8"/>
+      <title>Cubex - Webflow HTML website template</title>
+      <meta content="Introducing Cubex, our modern SaaS template designed specifically for businesses looking to launch their own software-as-a-service product. With a clean and professional design, Cubex makes it easy to showcase the features and benefits of your product to potential customers." name="description"/>
+      <meta content="Cubex - Webflow HTML website template" property="og:title"/>
+      <meta content="Introducing Cubex, our modern SaaS template designed specifically for businesses looking to launch their own software-as-a-service product. With a clean and professional design, Cubex makes it easy to showcase the features and benefits of your product to potential customers." property="og:description"/>
+      <meta content="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/63ec6837cef9b9686a636798_OpenGraph.jpg" property="og:image"/>
+      <meta content="Cubex - Webflow HTML website template" property="twitter:title"/>
+      <meta content="Introducing Cubex, our modern SaaS template designed specifically for businesses looking to launch their own software-as-a-service product. With a clean and professional design, Cubex makes it easy to showcase the features and benefits of your product to potential customers." property="twitter:description"/>
+      <meta content="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/63ec6837cef9b9686a636798_OpenGraph.jpg" property="twitter:image"/>
+      <meta property="og:type" content="website"/>
+      <meta content="summary_large_image" name="twitter:card"/>
+      <meta content="width=device-width, initial-scale=1" name="viewport"/>
+      <link href="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/css/cubex-template.fcd157f6a.css" rel="stylesheet" type="text/css"/>
+      <link href="https://fonts.googleapis.com" rel="preconnect"/>
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous"/>
+      <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script><script type="text/javascript">WebFont.load({  google: {    families: ["Inter:100,200,300,regular,500,600,700,800,900","Archivo:100,200,300,regular,500,600,700,800,900"]  }});</script><script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
+      <link href="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/63d8bb99d2064c7663028776_favicon.png" rel="shortcut icon" type="image/x-icon"/>
+      <link href="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/63d8bbb0ee165d4509627406_Webclip.png" rel="apple-touch-icon"/>
+      <style>
+         * {
+         -webkit-font-smoothing: antialiased;
+         -moz-osx-font-smoothing: grayscale;
+         }
+      </style>
+   </head>
+   <body>
+
+<div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navigation w-nav">
+    <div class="navigation-container">
+        <div class="navigation-link-wrapper">
+            <a href="#" class="navigation-logo w-nav-brand"><img src="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/63d8f0a1ef9132825c7ec744_Logo.svg" loading="lazy" alt="" class="logo"/></a>
+            <div class="navigation-divider"><img src="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/63d8f0a1a0e28dbfafd78dbe_Navigation%20Star.svg" loading="lazy" alt=""/></div>
+            <nav role="navigation" class="navigation-menu w-nav-menu">
+                <a href="{% url 'home' %}" aria-current="page" class="navigation-link w-nav-link w--current">Home</a>
+                <a href="{% url 'about' %}" class="navigation-link w-nav-link">About</a>
+                <a href="{% url 'pricing' %}" class="navigation-link w-nav-link">Pricing</a>
+                <div data-hover="false" data-delay="0" class="navigation-dropdown w-dropdown">
+                    <div class="navigation-toggle w-dropdown-toggle">
+                        <div>Pages</div>
+                        <div class="icon-small w-embed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M10.5832 6L7.99657 8.58667L5.4099 6C5.1499 5.74 4.7299 5.74 4.4699 6C4.2099 6.26 4.2099 6.68 4.4699 6.94L7.5299 10C7.7899 10.26 8.2099 10.26 8.4699 10L11.5299 6.94C11.7899 6.68 11.7899 6.26 11.5299 6C11.2699 5.74667 10.8432 5.74 10.5832 6Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <nav class="dropdown-list w-dropdown-list">
+                        <a href="{% url 'features' %}" class="dropdown-link w-dropdown-link">Features</a>
+                        <a href="{% url 'blog' %}" class="dropdown-link w-dropdown-link">Blog</a>
+                        <a href="{% url 'blogartcile' %}" class="dropdown-link w-dropdown-link">Blog Article</a>
+                        <a href="{% url 'integration' %}" class="dropdown-link w-dropdown-link">Integration</a>
+                    </nav>
+                </div>
+            </nav>
+        </div>
+        <div class="menu-button w-nav-button">
+            <div class="w-icon-nav-menu"></div>
+        </div>
+        <div class="navigation-button-group">
+            <!-- Показываем имя пользователя, если он авторизован -->
+            {% if user.is_authenticated %}
+                <a href="{% url 'profile' %}" class="navigation-button w-button">Welcome, {{ user.username }}</a>
+                <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="Logout" class="navigation-button w-button">
+                </form>
+            {% else %}
+                <!-- Показываем кнопки Login и Register, если пользователь не авторизован -->
+                <a href="{% url 'login' %}" class="navigation-button w-button">Login</a>
+                <a href="{% url 'register' %}" class="navigation-outline w-button">Register</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+      <div class="section-article">
+         <div data-w-id="1915c361-9313-ae2a-03ac-4fc5226afbbd" style="-webkit-transform:translate3d(0, 44px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 44px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 44px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 44px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="container-large">
+            <div class="header-title-wrapper">
+               <div class="detail-large">BLOG</div>
+               <h3>Take a look at the latest <br/>articles from our team</h3>
+            </div>
+            <div class="w-dyn-list">
+               <div role="list" class="blog-grid w-dyn-items">
+
+
+                  <div role="listitem" class="w-dyn-item">
+                     <a href="/blog/build-your-dream-site-with-webflow-cms" class="blog-card w-inline-block">
+                        <div class="blog-image-wrapper"><img loading="lazy" alt="" src="https://assets.website-files.com/63f62e5dcacb200415e37181/63f6d2800c83402fa74895a1_Thumbnail%2001.png" class="image-cover"/></div>
+                        <div class="blog-card-detail">
+                           <div style="background-color:#ffad99" class="blog-badge">
+                              <div>Organization</div>
+                           </div>
+                           <h6>Build your dream site with Webflow CMS</h6>
+                           <div class="blog-divider"></div>
+                           <div class="blog-date">
+                              <div class="label-small">February 28, 2023</div>
+                              <div class="blog-divider-small"></div>
+                              <div class="label-small">4 min read</div>
+                           </div>
+                        </div>
+                     </a>
+                  </div>
+
+               </div>
+            </div>
+         </div>
+         <div data-w-id="7ec03be8-926a-a92e-90e8-128ac5d7f8e2" style="-webkit-transform:translate3d(0, 44px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 44px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 44px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 44px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="blog-bg-block"></div>
+      </div>
+      <div class="section-small">
+         <div data-w-id="3745f596-6313-fa0d-0819-1f99606ffde3" class="container-regular">
+            <div data-w-id="3745f596-6313-fa0d-0819-1f99606ffde4" class="cta-block">
+               <div class="w-layout-grid cta-grid">
+                  <h4 id="w-node-_3745f596-6313-fa0d-0819-1f99606ffde7-606ffde2">Save time and build better products faster.</h4>
+                  <div id="w-node-_3745f596-6313-fa0d-0819-1f99606ffde9-606ffde2" class="cta-content">
+                     <div class="margin-bottom-16">
+                        <p class="paragraph-large text-color-gray-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut metus nunc.</p>
+                     </div>
+                     <div class="cta-button-wrapper">
+                        <a href="/pricing" class="button-right-icon w-inline-block">
+                           <div>Get Started</div>
+                           <div class="button-icon w-embed">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                 <path d="M14.6075 11.3572L11.255 7.90897L12.1388 7L17 12L12.1388 17L11.255 16.091L14.6075 12.6428H7V11.3572H14.6075Z" fill="currentColor"/>
+                              </svg>
+                           </div>
+                        </a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="section-small">
+         <div data-w-id="f00b4b16-5fa8-3bca-36f2-af68e7b8b551" class="container-small">
+            <div class="faq-title-wrapper">
+               <h3>Frequently asked questions</h3>
+            </div>
+            <div class="faq-tab-wrapper">
+               <div data-current="Tab 1" data-easing="ease" data-duration-in="300" data-duration-out="100" class="w-tabs">
+                  <div class="tabs-menu w-tab-menu">
+                     <a data-w-tab="Tab 1" class="tab-link w-inline-block w-tab-link w--current">
+                        <div>Product &amp; Template</div>
+                     </a>
+                     <a data-w-tab="Tab 2" class="tab-link w-inline-block w-tab-link">
+                        <div>Changelog</div>
+                     </a>
+                     <a data-w-tab="Tab 3" class="tab-link w-inline-block w-tab-link">
+                        <div>Terms &amp; Conditions</div>
+                     </a>
+                  </div>
+                  <div class="w-tab-content">
+                     <div data-w-tab="Tab 1" class="tab-pane w-tab-pane w--tab-active">
+                        <div class="faq-wrapper">
+                           <div data-hover="false" data-delay="0" data-w-id="f00b4b16-5fa8-3bca-36f2-af68e7b8b564" class="faq w-dropdown">
+                              <div class="faq-toggle w-dropdown-toggle">
+                                 <div class="faq-text-wrapper">
+                                    <div class="label-large">FAQ Question</div>
+                                    <div class="faq-icon-wrapper">
+                                       <div class="faq-icon-minus">
+                                          <div class="faq-icon w-embed">
+                                             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M7.875 13.125H20.125V14.875H7.875V13.125Z" fill="currentColor"/>
+                                             </svg>
+                                          </div>
+                                       </div>
+                                       <div class="faq-icon-plus">
+                                          <div class="faq-icon w-embed">
+                                             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13.125 13.125V7.875H14.875V13.125H20.125V14.875H14.875V20.125H13.125V14.875H7.875V13.125H13.125Z" fill="currentColor"/>
+                                             </svg>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <nav class="faq-content w-dropdown-list">
+                                 <div class="faq-tab">
+                                    <p class="paragraph-small">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniamullamco est sit aliqua dolor do consequat sunt nostrud amet.</p>
+                                 </div>
+                              </nav>
+                           </div>
+                           <div data-hover="false" data-delay="0" class="faq w-dropdown">
+                              <div class="faq-toggle w-dropdown-toggle">
+                                 <div class="faq-text-wrapper">
+                                    <div class="label-large">FAQ Question</div>
+                                    <div class="faq-icon-wrapper">
+                                       <div class="faq-icon-minus">
+                                          <div class="faq-icon w-embed">
+                                             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M7.875 13.125H20.125V14.875H7.875V13.125Z" fill="currentColor"/>
+                                             </svg>
+                                          </div>
+                                       </div>
+                                       <div class="faq-icon-plus">
+                                          <div class="faq-icon w-embed">
+                                             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13.125 13.125V7.875H14.875V13.125H20.125V14.875H14.875V20.125H13.125V14.875H7.875V13.125H13.125Z" fill="currentColor"/>
+                                             </svg>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <nav class="faq-content w-dropdown-list">
+                                 <div class="faq-tab">
+                                    <p class="paragraph-small">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniamullamco est sit aliqua dolor do consequat sunt nostrud amet.</p>
+                                 </div>
+                              </nav>
+                           </div>
+                           <div data-hover="false" data-delay="0" class="faq w-dropdown">
+                              <div class="faq-toggle w-dropdown-toggle">
+                                 <div class="faq-text-wrapper">
+                                    <div class="label-large">FAQ Question</div>
+                                    <div class="faq-icon-wrapper">
+                                       <div class="faq-icon-minus">
+                                          <div class="faq-icon w-embed">
+                                             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M7.875 13.125H20.125V14.875H7.875V13.125Z" fill="currentColor"/>
+                                             </svg>
+                                          </div>
+                                       </div>
+                                       <div class="faq-icon-plus">
+                                          <div class="faq-icon w-embed">
+                                             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13.125 13.125V7.875H14.875V13.125H20.125V14.875H14.875V20.125H13.125V14.875H7.875V13.125H13.125Z" fill="currentColor"/>
+                                             </svg>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <nav class="faq-content w-dropdown-list">
+                                 <div class="faq-tab">
+                                    <p class="paragraph-small">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniamullamco est sit aliqua dolor do consequat sunt nostrud amet.</p>
+                                 </div>
+                              </nav>
+                           </div>
+                           <div data-hover="false" data-delay="0" class="faq w-dropdown">
+                              <div class="faq-toggle w-dropdown-toggle">
+                                 <div class="faq-text-wrapper">
+                                    <div class="label-large">FAQ Question</div>
+                                    <div class="faq-icon-wrapper">
+                                       <div class="faq-icon-minus">
+                                          <div class="faq-icon w-embed">
+                                             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M7.875 13.125H20.125V14.875H7.875V13.125Z" fill="currentColor"/>
+                                             </svg>
+                                          </div>
+                                       </div>
+                                       <div class="faq-icon-plus">
+                                          <div class="faq-icon w-embed">
+                                             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13.125 13.125V7.875H14.875V13.125H20.125V14.875H14.875V20.125H13.125V14.875H7.875V13.125H13.125Z" fill="currentColor"/>
+                                             </svg>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <nav class="faq-content w-dropdown-list">
+                                 <div class="faq-tab">
+                                    <p class="paragraph-small">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniamullamco est sit aliqua dolor do consequat sunt nostrud amet.</p>
+                                 </div>
+                              </nav>
+                           </div>
+                           <div data-hover="false" data-delay="0" class="faq w-dropdown">
+                              <div class="faq-toggle w-dropdown-toggle">
+                                 <div class="faq-text-wrapper">
+                                    <div class="label-large">FAQ Question</div>
+                                    <div class="faq-icon-wrapper">
+                                       <div class="faq-icon-minus">
+                                          <div class="faq-icon w-embed">
+                                             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M7.875 13.125H20.125V14.875H7.875V13.125Z" fill="currentColor"/>
+                                             </svg>
+                                          </div>
+                                       </div>
+                                       <div class="faq-icon-plus">
+                                          <div class="faq-icon w-embed">
+                                             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13.125 13.125V7.875H14.875V13.125H20.125V14.875H14.875V20.125H13.125V14.875H7.875V13.125H13.125Z" fill="currentColor"/>
+                                             </svg>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <nav class="faq-content w-dropdown-list">
+                                 <div class="faq-tab">
+                                    <p class="paragraph-small">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniamullamco est sit aliqua dolor do consequat sunt nostrud amet.</p>
+                                 </div>
+                              </nav>
+                           </div>
+                        </div>
+                     </div>
+                     <div data-w-tab="Tab 2" class="tab-pane w-tab-pane">
+                        <div class="faq-wrapper">
+                           <div data-hover="false" data-delay="0" class="faq w-dropdown">
+                              <div class="faq-toggle w-dropdown-toggle">
+                                 <div class="faq-text-wrapper">
+                                    <div class="label-large">Lorem ipsum dolor sit amet?</div>
+                                    <div class="faq-icon-wrapper">
+                                       <div class="faq-icon-minus">
+                                          <div class="faq-icon w-embed">
+                                             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M7.875 13.125H20.125V14.875H7.875V13.125Z" fill="currentColor"/>
+                                             </svg>
+                                          </div>
+                                       </div>
+                                       <div class="faq-icon-plus">
+                                          <div class="faq-icon w-embed">
+                                             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13.125 13.125V7.875H14.875V13.125H20.125V14.875H14.875V20.125H13.125V14.875H7.875V13.125H13.125Z" fill="currentColor"/>
+                                             </svg>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <nav class="faq-content w-dropdown-list">
+                                 <div class="faq-tab">
+                                    <p class="paragraph-small">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniamullamco est sit aliqua dolor do consequat sunt nostrud amet.</p>
+                                 </div>
+                              </nav>
+                           </div>
+                           <div data-hover="false" data-delay="0" class="faq w-dropdown">
+                              <div class="faq-toggle w-dropdown-toggle">
+                                 <div class="faq-text-wrapper">
+                                    <div class="label-large">Lorem ipsum dolor sit amet?</div>
+                                    <div class="faq-icon-wrapper">
+                                       <div class="faq-icon-minus">
+                                          <div class="faq-icon w-embed">
+                                             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M7.875 13.125H20.125V14.875H7.875V13.125Z" fill="currentColor"/>
+                                             </svg>
+                                          </div>
+                                       </div>
+                                       <div class="faq-icon-plus">
+                                          <div class="faq-icon w-embed">
+                                             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13.125 13.125V7.875H14.875V13.125H20.125V14.875H14.875V20.125H13.125V14.875H7.875V13.125H13.125Z" fill="currentColor"/>
+                                             </svg>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <nav class="faq-content w-dropdown-list">
+                                 <div class="faq-tab">
+                                    <p class="paragraph-small">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniamullamco est sit aliqua dolor do consequat sunt nostrud amet.</p>
+                                 </div>
+                              </nav>
+                           </div>
+                        </div>
+                     </div>
+                     <div data-w-tab="Tab 3" class="tab-pane w-tab-pane">
+                        <div class="faq-wrapper">
+                           <div data-hover="false" data-delay="0" class="faq w-dropdown">
+                              <div class="faq-toggle w-dropdown-toggle">
+                                 <div class="faq-text-wrapper">
+                                    <div class="label-large">Lorem ipsum dolor sit amet?</div>
+                                    <div class="faq-icon-wrapper">
+                                       <div class="faq-icon-minus">
+                                          <div class="faq-icon w-embed">
+                                             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M7.875 13.125H20.125V14.875H7.875V13.125Z" fill="currentColor"/>
+                                             </svg>
+                                          </div>
+                                       </div>
+                                       <div class="faq-icon-plus">
+                                          <div class="faq-icon w-embed">
+                                             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13.125 13.125V7.875H14.875V13.125H20.125V14.875H14.875V20.125H13.125V14.875H7.875V13.125H13.125Z" fill="currentColor"/>
+                                             </svg>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <nav class="faq-content w-dropdown-list">
+                                 <div class="faq-tab">
+                                    <p class="paragraph-small">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniamullamco est sit aliqua dolor do consequat sunt nostrud amet.</p>
+                                 </div>
+                              </nav>
+                           </div>
+                           <div data-hover="false" data-delay="0" class="faq w-dropdown">
+                              <div class="faq-toggle w-dropdown-toggle">
+                                 <div class="faq-text-wrapper">
+                                    <div class="label-large">Lorem ipsum dolor sit amet?</div>
+                                    <div class="faq-icon-wrapper">
+                                       <div class="faq-icon-minus">
+                                          <div class="faq-icon w-embed">
+                                             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M7.875 13.125H20.125V14.875H7.875V13.125Z" fill="currentColor"/>
+                                             </svg>
+                                          </div>
+                                       </div>
+                                       <div class="faq-icon-plus">
+                                          <div class="faq-icon w-embed">
+                                             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13.125 13.125V7.875H14.875V13.125H20.125V14.875H14.875V20.125H13.125V14.875H7.875V13.125H13.125Z" fill="currentColor"/>
+                                             </svg>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <nav class="faq-content w-dropdown-list">
+                                 <div class="faq-tab">
+                                    <p class="paragraph-small">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniamullamco est sit aliqua dolor do consequat sunt nostrud amet.</p>
+                                 </div>
+                              </nav>
+                           </div>
+                           <div data-hover="false" data-delay="0" class="faq w-dropdown">
+                              <div class="faq-toggle w-dropdown-toggle">
+                                 <div class="faq-text-wrapper">
+                                    <div class="label-large">Lorem ipsum dolor sit amet?</div>
+                                    <div class="faq-icon-wrapper">
+                                       <div class="faq-icon-minus">
+                                          <div class="faq-icon w-embed">
+                                             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M7.875 13.125H20.125V14.875H7.875V13.125Z" fill="currentColor"/>
+                                             </svg>
+                                          </div>
+                                       </div>
+                                       <div class="faq-icon-plus">
+                                          <div class="faq-icon w-embed">
+                                             <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13.125 13.125V7.875H14.875V13.125H20.125V14.875H14.875V20.125H13.125V14.875H7.875V13.125H13.125Z" fill="currentColor"/>
+                                             </svg>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <nav class="faq-content w-dropdown-list">
+                                 <div class="faq-tab">
+                                    <p class="paragraph-small">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniamullamco est sit aliqua dolor do consequat sunt nostrud amet.</p>
+                                 </div>
+                              </nav>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="section-footer">
+         <div data-w-id="daf5f210-81aa-013d-a9eb-cddcc29f8bad" class="footer-block">
+            <div class="container-small">
+               <div class="footer-grid">
+                  <div id="w-node-daf5f210-81aa-013d-a9eb-cddcc29f8bb0-c29f8bac">
+                     <a href="#" class="footer-logo w-inline-block"><img src="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/63da5d0e52b1198118dd418b_Footer%20Logo.svg" loading="lazy" alt="" class="logo"/></a>
+                     <p class="paragraph-small text-color-gray-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ante dui Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ante dui</p>
+                     <div class="footer-social-links">
+                        <a href="#" class="footer-social-link w-inline-block">
+                           <div class="icon-regular w-embed">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                 <path d="M12 4.5C7.85775 4.5 4.5 7.85775 4.5 12C4.5 15.7432 7.24275 18.846 10.8285 19.4093V14.1675H8.9235V12H10.8285V10.3477C10.8285 8.46825 11.9475 7.43025 13.6613 7.43025C14.4818 7.43025 15.3397 7.5765 15.3397 7.5765V9.4215H14.3947C13.4625 9.4215 13.1722 9.99975 13.1722 10.593V12H15.252L14.9198 14.1675H13.1722V19.4093C16.7572 18.8468 19.5 15.7425 19.5 12C19.5 7.85775 16.1423 4.5 12 4.5Z" fill="currentColor"/>
+                              </svg>
+                           </div>
+                        </a>
+                        <a href="#" class="footer-social-link w-inline-block">
+                           <div class="icon-regular w-embed">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                 <path d="M12 4.5C14.0378 4.5 14.292 4.5075 15.0915 4.545C15.8903 4.5825 16.434 4.70775 16.9125 4.89375C17.4075 5.08425 17.8245 5.34225 18.2415 5.7585C18.6229 6.13342 18.918 6.58694 19.1063 7.0875C19.2915 7.56525 19.4175 8.10975 19.455 8.9085C19.4903 9.708 19.5 9.96225 19.5 12C19.5 14.0378 19.4925 14.292 19.455 15.0915C19.4175 15.8903 19.2915 16.434 19.1063 16.9125C18.9185 17.4133 18.6233 17.867 18.2415 18.2415C17.8665 18.6227 17.413 18.9178 16.9125 19.1063C16.4347 19.2915 15.8903 19.4175 15.0915 19.455C14.292 19.4903 14.0378 19.5 12 19.5C9.96225 19.5 9.708 19.4925 8.9085 19.455C8.10975 19.4175 7.566 19.2915 7.0875 19.1063C6.58674 18.9184 6.13315 18.6232 5.7585 18.2415C5.37705 17.8666 5.08195 17.4131 4.89375 16.9125C4.70775 16.4347 4.5825 15.8903 4.545 15.0915C4.50975 14.292 4.5 14.0378 4.5 12C4.5 9.96225 4.5075 9.708 4.545 8.9085C4.5825 8.109 4.70775 7.566 4.89375 7.0875C5.08143 6.58663 5.3766 6.13299 5.7585 5.7585C6.13325 5.37692 6.58682 5.0818 7.0875 4.89375C7.566 4.70775 8.109 4.5825 8.9085 4.545C9.708 4.50975 9.96225 4.5 12 4.5ZM12 8.25C11.0054 8.25 10.0516 8.64509 9.34835 9.34835C8.64509 10.0516 8.25 11.0054 8.25 12C8.25 12.9946 8.64509 13.9484 9.34835 14.6517C10.0516 15.3549 11.0054 15.75 12 15.75C12.9946 15.75 13.9484 15.3549 14.6517 14.6517C15.3549 13.9484 15.75 12.9946 15.75 12C15.75 11.0054 15.3549 10.0516 14.6517 9.34835C13.9484 8.64509 12.9946 8.25 12 8.25ZM16.875 8.0625C16.875 7.81386 16.7762 7.5754 16.6004 7.39959C16.4246 7.22377 16.1861 7.125 15.9375 7.125C15.6889 7.125 15.4504 7.22377 15.2746 7.39959C15.0988 7.5754 15 7.81386 15 8.0625C15 8.31114 15.0988 8.5496 15.2746 8.72541C15.4504 8.90123 15.6889 9 15.9375 9C16.1861 9 16.4246 8.90123 16.6004 8.72541C16.7762 8.5496 16.875 8.31114 16.875 8.0625ZM12 9.75C12.5967 9.75 13.169 9.98705 13.591 10.409C14.0129 10.831 14.25 11.4033 14.25 12C14.25 12.5967 14.0129 13.169 13.591 13.591C13.169 14.0129 12.5967 14.25 12 14.25C11.4033 14.25 10.831 14.0129 10.409 13.591C9.98705 13.169 9.75 12.5967 9.75 12C9.75 11.4033 9.98705 10.831 10.409 10.409C10.831 9.98705 11.4033 9.75 12 9.75Z" fill="currentColor"/>
+                              </svg>
+                           </div>
+                        </a>
+                        <a href="#" class="footer-social-link w-inline-block">
+                           <div class="icon-regular w-embed">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                 <path d="M19.6212 7.24219C19.0487 7.49546 18.4415 7.66179 17.8197 7.73569C18.475 7.34376 18.9655 6.72695 19.1997 6.00019C18.5847 6.36619 17.9105 6.62269 17.2077 6.76144C16.7357 6.25637 16.11 5.92141 15.428 5.80863C14.7459 5.69584 14.0457 5.81156 13.4362 6.13778C12.8267 6.464 12.342 6.98245 12.0576 7.61253C11.7731 8.24262 11.7048 8.94902 11.8632 9.62194C10.6161 9.55943 9.39598 9.23533 8.2822 8.67069C7.16842 8.10604 6.18583 7.31347 5.39823 6.34444C5.11945 6.82328 4.97295 7.36761 4.97373 7.92169C4.97373 9.00919 5.52723 9.96994 6.36873 10.5324C5.87074 10.5168 5.38371 10.3823 4.94823 10.1402V10.1792C4.94838 10.9035 5.19901 11.6054 5.65762 12.166C6.11623 12.7266 6.7546 13.1113 7.46448 13.2549C7.0022 13.3802 6.51746 13.3987 6.04698 13.3089C6.24713 13.9324 6.63724 14.4776 7.16268 14.8683C7.68812 15.259 8.32258 15.4755 8.97723 15.4877C8.32659 15.9987 7.58162 16.3764 6.78489 16.5993C5.98817 16.8222 5.15533 16.8859 4.33398 16.7867C5.76776 17.7088 7.43681 18.1983 9.14148 18.1967C14.9112 18.1967 18.0665 13.4169 18.0665 9.27169C18.0665 9.13669 18.0627 9.00019 18.0567 8.86669C18.6709 8.42281 19.2009 7.87295 19.622 7.24294L19.6212 7.24219Z" fill="currentColor"/>
+                              </svg>
+                           </div>
+                        </a>
+                     </div>
+                  </div>
+                  <div id="w-node-daf5f210-81aa-013d-a9eb-cddcc29f8bbc-c29f8bac" class="w-layout-grid footer-link-grid">
+                     <div id="w-node-daf5f210-81aa-013d-a9eb-cddcc29f8bbd-c29f8bac" class="footer-link-column">
+                        <div class="footer-title">Pages</div>
+                        <a href="/" class="footer-link">Overview</a><a href="/home" class="footer-link">Home</a><a href="/about" class="footer-link">About</a><a href="/features" class="footer-link">Features</a><a href="/pricing" class="footer-link">Pricing</a>
+                     </div>
+                     <div id="w-node-daf5f210-81aa-013d-a9eb-cddcc29f8bc8-c29f8bac" class="footer-link-column">
+                        <div class="footer-title">Company</div>
+                        <a href="https://cubex-template.webflow.io/integration/slack" class="footer-link">Integration</a><a href="/blog" aria-current="page" class="footer-link w--current">Blog</a><a href="https://cubex-template.webflow.io/blog/why-should-you-move-your-website-to-webflow" class="footer-link">Blog Article</a><a href="/contact" class="footer-link">Contact</a>
+                     </div>
+                     <div id="w-node-daf5f210-81aa-013d-a9eb-cddcc29f8bd3-c29f8bac" class="footer-link-column">
+                        <div class="footer-title">Contact</div>
+                        <a href="/account/register" class="footer-link">Login</a><a href="/account/login" class="footer-link">Register</a><a href="/account/forgot-password" class="footer-link">Forgot Password</a><a href="/account/update-password" class="footer-link">Update Password</a>
+                     </div>
+                  </div>
+               </div>
+               <div class="footer-divider"></div>
+               <div class="footer-bottom">
+                  <div class="paragraph-small">Copyright © Cubex Theme - Powered by <a href="http://webflow.com" target="_blank" class="span-link">Webflow</a> Built by <a href="http://www.flowbase.co" target="_blank" class="span-link">Flowbase</a></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=63d8bb043a5c9071ccfdd0cc" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script><script src="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/js/cubex-template.f287ce5c7.js" type="text/javascript"></script>
+   </body>
+</html>

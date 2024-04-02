@@ -1,0 +1,665 @@
+<!DOCTYPE html><!-- Last Published: Thu Mar 09 2023 13:47:58 GMT+0000 (Coordinated Universal Time) -->
+<html data-wf-domain="cubex-template.webflow.io" data-wf-page="63d8c78c4bb5ec71ca35907e" data-wf-site="63d8bb043a5c9071ccfdd0cc">
+   <head>
+      <meta charset="utf-8"/>
+      <title>Cubex - Webflow HTML website template</title>
+      <meta content="Introducing Cubex, our modern SaaS template designed specifically for businesses looking to launch their own software-as-a-service product. With a clean and professional design, Cubex makes it easy to showcase the features and benefits of your product to potential customers." name="description"/>
+      <meta content="Cubex - Webflow HTML website template" property="og:title"/>
+      <meta content="Introducing Cubex, our modern SaaS template designed specifically for businesses looking to launch their own software-as-a-service product. With a clean and professional design, Cubex makes it easy to showcase the features and benefits of your product to potential customers." property="og:description"/>
+      <meta content="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/63ec6837cef9b9686a636798_OpenGraph.jpg" property="og:image"/>
+      <meta content="Cubex - Webflow HTML website template" property="twitter:title"/>
+      <meta content="Introducing Cubex, our modern SaaS template designed specifically for businesses looking to launch their own software-as-a-service product. With a clean and professional design, Cubex makes it easy to showcase the features and benefits of your product to potential customers." property="twitter:description"/>
+      <meta content="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/63ec6837cef9b9686a636798_OpenGraph.jpg" property="twitter:image"/>
+      <meta property="og:type" content="website"/>
+      <meta content="summary_large_image" name="twitter:card"/>
+      <meta content="width=device-width, initial-scale=1" name="viewport"/>
+      <link href="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/css/cubex-template.fcd157f6a.css" rel="stylesheet" type="text/css"/>
+      <link href="https://fonts.googleapis.com" rel="preconnect"/>
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous"/>
+      <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script><script type="text/javascript">WebFont.load({  google: {    families: ["Inter:100,200,300,regular,500,600,700,800,900","Archivo:100,200,300,regular,500,600,700,800,900"]  }});</script><script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
+      <link href="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/63d8bb99d2064c7663028776_favicon.png" rel="shortcut icon" type="image/x-icon"/>
+      <link href="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/63d8bbb0ee165d4509627406_Webclip.png" rel="apple-touch-icon"/>
+      <style>
+         * {
+         -webkit-font-smoothing: antialiased;
+         -moz-osx-font-smoothing: grayscale;
+         }
+      </style>
+   </head>
+   <body>
+
+<div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navigation w-nav">
+    <div class="navigation-container">
+        <div class="navigation-link-wrapper">
+            <a href="#" class="navigation-logo w-nav-brand"><img src="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/63d8f0a1ef9132825c7ec744_Logo.svg" loading="lazy" alt="" class="logo"/></a>
+            <div class="navigation-divider"><img src="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/63d8f0a1a0e28dbfafd78dbe_Navigation%20Star.svg" loading="lazy" alt=""/></div>
+            <nav role="navigation" class="navigation-menu w-nav-menu">
+                <a href="{% url 'home' %}" aria-current="page" class="navigation-link w-nav-link w--current">Home</a>
+                <a href="{% url 'about' %}" class="navigation-link w-nav-link">About</a>
+                <a href="{% url 'pricing' %}" class="navigation-link w-nav-link">Pricing</a>
+                <div data-hover="false" data-delay="0" class="navigation-dropdown w-dropdown">
+                    <div class="navigation-toggle w-dropdown-toggle">
+                        <div>Pages</div>
+                        <div class="icon-small w-embed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M10.5832 6L7.99657 8.58667L5.4099 6C5.1499 5.74 4.7299 5.74 4.4699 6C4.2099 6.26 4.2099 6.68 4.4699 6.94L7.5299 10C7.7899 10.26 8.2099 10.26 8.4699 10L11.5299 6.94C11.7899 6.68 11.7899 6.26 11.5299 6C11.2699 5.74667 10.8432 5.74 10.5832 6Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <nav class="dropdown-list w-dropdown-list">
+                        <a href="{% url 'features' %}" class="dropdown-link w-dropdown-link">Features</a>
+                        <a href="{% url 'blog' %}" class="dropdown-link w-dropdown-link">Blog</a>
+                        <a href="{% url 'blogartcile' %}" class="dropdown-link w-dropdown-link">Blog Article</a>
+                        <a href="{% url 'integration' %}" class="dropdown-link w-dropdown-link">Integration</a>
+                    </nav>
+                </div>
+            </nav>
+        </div>
+        <div class="menu-button w-nav-button">
+            <div class="w-icon-nav-menu"></div>
+        </div>
+        <div class="navigation-button-group">
+            <!-- Показываем имя пользователя, если он авторизован -->
+            {% if user.is_authenticated %}
+                <span class="navigation-button w-button">Welcome, {{ user.username }}</span>
+                <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="Logout" class="navigation-button w-button">
+                </form>
+            {% else %}
+                <!-- Показываем кнопки Login и Register, если пользователь не авторизован -->
+                <a href="{% url 'login' %}" class="navigation-button w-button">Login</a>
+                <a href="{% url 'register' %}" class="navigation-outline w-button">Register</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+      <div class="section-header">
+         <div class="container-regular">
+            <div data-w-id="b1bb97a4-6293-d363-9a47-db4259e4ced3" style="-webkit-transform:translate3d(0, 44px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 44px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 44px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 44px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="w-layout-grid header-grid">
+               <div class="header-text-wrapper">
+                  <div class="dots-left">
+                     <div class="dot-01"></div>
+                     <div class="dot-02"></div>
+                     <div class="dot-03"></div>
+                  </div>
+                  <div class="margin-bottom-16">
+                     <h1>Cubex makes it easy to run your business.</h1>
+                  </div>
+                  <p class="paragraph-x-large">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut metus nunc, fermentum id ex non, dapibus hendrerit eros.</p>
+                  <div class="button-wrapper">
+                     <a href="/about" class="button-right-icon w-inline-block">
+                        <div>Get Started</div>
+                        <div class="button-icon w-embed">
+                           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M14.6075 11.3572L11.255 7.90897L12.1388 7L17 12L12.1388 17L11.255 16.091L14.6075 12.6428H7V11.3572H14.6075Z" fill="currentColor"/>
+                           </svg>
+                        </div>
+                     </a>
+                  </div>
+               </div>
+               <div class="header-image-block"><img src="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/63f62dc4f0841e1d65d19901_Content%20Graphic%2001.svg" loading="lazy" alt="" width="974"/></div>
+            </div>
+         </div>
+      </div>
+      <div class="section-logo">
+         <div class="container-large">
+            <div data-w-id="76e54f62-538f-4035-e33e-ef131a750413" class="logo-block">
+               <div class="logo-wrapper"><img src="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/63d90387444302610c8db908_Brand%201.svg" loading="lazy" alt=""/></div>
+               <div class="logo-divider"></div>
+               <div class="logo-wrapper"><img src="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/63d903877da01f0898a99030_Brand%203.svg" loading="lazy" alt=""/></div>
+               <div class="logo-divider mobile"></div>
+               <div class="logo-wrapper"><img src="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/63d90387acde291b3ba3b23a_Brand%204.svg" loading="lazy" alt=""/></div>
+               <div class="logo-divider tablet"></div>
+               <div class="logo-wrapper"><img src="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/63d90387808af45c1531b7c0_Brand%205.svg" loading="lazy" alt=""/></div>
+               <div class="logo-divider mobile"></div>
+               <div class="logo-wrapper"><img src="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/63d9038778a82c291c90fb96_Brand%206.svg" loading="lazy" alt=""/></div>
+               <div class="logo-divider"></div>
+               <div class="logo-wrapper"><img src="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/63d90387a0e28d71bcd8cb52_Brand%202.svg" loading="lazy" alt=""/></div>
+            </div>
+         </div>
+      </div>
+      <div class="section-x-small">
+         <div class="container-x-small">
+            <div data-w-id="813dd3fa-b425-d51e-4b72-7d2875877858" style="-webkit-transform:translate3d(0, 44px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 44px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 44px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 44px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="w-layout-grid grid-two-column">
+               <div id="w-node-f6301fbb-7f9e-3167-51ba-6120be6d0d5b-ca35907e" class="header-text-wrapper">
+                  <h5>Beautiful designs, totally customized in minutes.</h5>
+               </div>
+               <div id="w-node-_0ab715cb-6f62-6804-2742-c1862b377286-ca35907e" class="content-text-wrapper">
+                  <div class="margin-bottom-16">
+                     <p class="paragraph-large">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut metus nunc, fermentum id ex non, dapibus hendrerit eros.</p>
+                  </div>
+                  <p class="paragraph-large text-italic">Make powerful solutions a priority.</p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="section-customer">
+         <div data-w-id="ebb918a9-6b27-6d48-c2b0-f4d53ba398db" style="-webkit-transform:translate3d(0, 44px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 44px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 44px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 44px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="feature-wrapper">
+            <div class="feature-block">
+               <div class="feature-icon-block badge-yellow">
+                  <div class="icon-large w-embed">
+                     <svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.3335 26C10.8105 26 6.3335 21.523 6.3335 16C6.3335 10.477 10.8105 6 16.3335 6C21.8565 6 26.3335 10.477 26.3335 16C26.3335 21.523 21.8565 26 16.3335 26ZM15.3365 20L22.4065 12.929L20.9925 11.515L15.3365 17.172L12.5075 14.343L11.0935 15.757L15.3365 20Z" fill="currentColor"/>
+                     </svg>
+                  </div>
+               </div>
+               <h6>Save time and build better with Cubex Template.</h6>
+            </div>
+            <div class="feature-divider"></div>
+            <div class="feature-block">
+               <div class="feature-icon-block badge-blue">
+                  <div class="icon-large w-embed">
+                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 15V9L11 17H14V23L19 15H16ZM7 9H23C23.2652 9 23.5196 9.10536 23.7071 9.29289C23.8946 9.48043 24 9.73478 24 10V22C24 22.2652 23.8946 22.5196 23.7071 22.7071C23.5196 22.8946 23.2652 23 23 23H7C6.73478 23 6.48043 22.8946 6.29289 22.7071C6.10536 22.5196 6 22.2652 6 22V10C6 9.73478 6.10536 9.48043 6.29289 9.29289C6.48043 9.10536 6.73478 9 7 9ZM25 13H27V19H25V13Z" fill="currentColor"/>
+                     </svg>
+                  </div>
+               </div>
+               <h6>Easy to edit and customize for your own projects.</h6>
+            </div>
+            <div class="feature-divider"></div>
+            <div class="feature-block">
+               <div class="feature-icon-block badge-green">
+                  <div class="icon-large w-embed">
+                     <svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.666 5L26.166 10.5V21.5L16.666 27L7.16602 21.5V10.5L16.666 5ZM16.666 19C17.4617 19 18.2247 18.6839 18.7873 18.1213C19.3499 17.5587 19.666 16.7956 19.666 16C19.666 15.2044 19.3499 14.4413 18.7873 13.8787C18.2247 13.3161 17.4617 13 16.666 13C15.8704 13 15.1073 13.3161 14.5447 13.8787C13.9821 14.4413 13.666 15.2044 13.666 16C13.666 16.7956 13.9821 17.5587 14.5447 18.1213C15.1073 18.6839 15.8704 19 16.666 19Z" fill="currentColor"/>
+                     </svg>
+                  </div>
+               </div>
+               <h6>Deliver an enterprise quality project in minutes</h6>
+            </div>
+         </div>
+         <div data-w-id="4c93470c-e8c7-89ab-1e97-c68e3cd15526" style="-webkit-transform:translate3d(0, 44px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 44px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 44px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 44px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="content-block">
+            <div class="container-small">
+               <div class="w-layout-grid content-grid">
+                  <div id="w-node-b1601f9b-adbd-8419-c1e9-6be7dde93b38-ca35907e" class="content-block-wrapper">
+                     <div class="margin-bottom-24">
+                        <h3>Describe your products for all customers</h3>
+                     </div>
+                     <div class="content-check-wrapper">
+                        <div class="content-feature">
+                           <img src="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/63d91e2f8268300de2ee81f1_Check%20Icon.svg" loading="lazy" alt="" class="icon-check"/>
+                           <p class="paragraph-large">Add a feature section about the product.</p>
+                        </div>
+                        <div class="content-feature">
+                           <img src="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/63d91e2f8268300de2ee81f1_Check%20Icon.svg" loading="lazy" alt="" class="icon-check"/>
+                           <p class="paragraph-large">Add a feature section about the product.</p>
+                        </div>
+                        <div class="content-feature">
+                           <img src="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/63d91e2f8268300de2ee81f1_Check%20Icon.svg" loading="lazy" alt="" class="icon-check"/>
+                           <p class="paragraph-large">Add a feature section about the product.</p>
+                        </div>
+                     </div>
+                     <div class="button-wrapper">
+                        <a href="/features" class="button-outline-icon-r w-inline-block">
+                           <div>Get Started</div>
+                           <div class="button-icon w-embed">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                 <path d="M14.6075 11.3572L11.255 7.90897L12.1388 7L17 12L12.1388 17L11.255 16.091L14.6075 12.6428H7V11.3572H14.6075Z" fill="currentColor"/>
+                              </svg>
+                           </div>
+                        </a>
+                     </div>
+                  </div>
+                  <div id="w-node-_856ee218-9db4-eed6-2376-57954ad61082-ca35907e" class="content-image-wrapper"><img src="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/63f62d0076e68e3961243c5c_Content%20Graphic%2002.svg" loading="lazy" width="479" alt=""/></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="section-small">
+         <div data-w-id="b12105e6-3060-5d09-c82b-b4b186081ffd" style="-webkit-transform:translate3d(0, 44px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 44px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 44px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 44px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="container-regular">
+            <div class="w-layout-grid content-grid">
+               <div id="w-node-_78000054-f809-71b6-f8b9-7d0db6538154-ca35907e" class="content-image-wrapper"><img src="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/63f62d365f0a00b7abdf22e6_Content%20Graphic%2003.svg" loading="lazy" width="443.5" alt=""/></div>
+               <div id="w-node-b5d0bd2f-e1d4-62d0-9363-84a7a02b3eb5-ca35907e" class="content-block-wrapper">
+                  <div class="margin-bottom-24">
+                     <h3>Customize the template to suit any brand</h3>
+                  </div>
+                  <div class="content-check-wrapper">
+                     <div class="content-feature">
+                        <img src="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/63d91e2f8268300de2ee81f1_Check%20Icon.svg" loading="lazy" alt="" class="icon-check"/>
+                        <p class="paragraph-large">Add a feature section about the product.</p>
+                     </div>
+                     <div class="content-feature">
+                        <img src="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/63d91e2f8268300de2ee81f1_Check%20Icon.svg" loading="lazy" alt="" class="icon-check"/>
+                        <p class="paragraph-large">Add a feature section about the product.</p>
+                     </div>
+                     <div class="content-feature">
+                        <img src="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/63d91e2f8268300de2ee81f1_Check%20Icon.svg" loading="lazy" alt="" class="icon-check"/>
+                        <p class="paragraph-large">Add a feature section about the product.</p>
+                     </div>
+                  </div>
+                  <div class="button-wrapper">
+                     <a href="/pricing" class="button-outline-icon-r w-inline-block">
+                        <div>Get Started</div>
+                        <div class="button-icon w-embed">
+                           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M14.6075 11.3572L11.255 7.90897L12.1388 7L17 12L12.1388 17L11.255 16.091L14.6075 12.6428H7V11.3572H14.6075Z" fill="currentColor"/>
+                           </svg>
+                        </div>
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="section-testimonial">
+         <div data-w-id="6d5f268a-4ed1-f63f-df78-69d9c4f89766" class="review-block">
+            <div class="number-text-wrapper">
+               <div class="margin-bottom-08">
+                  <h5>50,000+ happy customers.</h5>
+               </div>
+               <p class="paragraph-regular text-color-gray-300">Don&#x27;t start from nothing, use a template to form the foundation of your next project.</p>
+            </div>
+            <div class="number-item-wrapper">
+               <div class="number-item">
+                  <div class="block">
+                     <h3>4.9</h3>
+                     <p class="paragraph-regular text-color-gray-300">2,442 average rating</p>
+                  </div>
+                  <div class="number-review-wrapper">
+                     <div class="icon-regular w-embed">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M12.0002 16.695L6.71043 19.656L7.89168 13.71L3.44043 9.594L9.46068 8.88L12.0002 3.375L14.5397 8.88L20.5599 9.594L16.1087 13.71L17.2899 19.656L12.0002 16.695Z" fill="#FDD540"/>
+                        </svg>
+                     </div>
+                     <div class="icon-regular w-embed">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M12.0002 16.695L6.71043 19.656L7.89168 13.71L3.44043 9.594L9.46068 8.88L12.0002 3.375L14.5397 8.88L20.5599 9.594L16.1087 13.71L17.2899 19.656L12.0002 16.695Z" fill="#FDD540"/>
+                        </svg>
+                     </div>
+                     <div class="icon-regular w-embed">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M12.0002 16.695L6.71043 19.656L7.89168 13.71L3.44043 9.594L9.46068 8.88L12.0002 3.375L14.5397 8.88L20.5599 9.594L16.1087 13.71L17.2899 19.656L12.0002 16.695Z" fill="#FDD540"/>
+                        </svg>
+                     </div>
+                     <div class="icon-regular w-embed">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M12.0002 16.695L6.71043 19.656L7.89168 13.71L3.44043 9.594L9.46068 8.88L12.0002 3.375L14.5397 8.88L20.5599 9.594L16.1087 13.71L17.2899 19.656L12.0002 16.695Z" fill="#FDD540"/>
+                        </svg>
+                     </div>
+                     <div class="icon-regular w-embed">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M12.0002 16.695L6.71043 19.656L7.89168 13.71L3.44043 9.594L9.46068 8.88L12.0002 3.375L14.5397 8.88L20.5599 9.594L16.1087 13.71L17.2899 19.656L12.0002 16.695Z" fill="#FDD540"/>
+                        </svg>
+                     </div>
+                  </div>
+               </div>
+               <div class="number-item">
+                  <div class="block">
+                     <h3>A+</h3>
+                     <p class="paragraph-regular text-color-gray-300">179 customer reviews</p>
+                  </div>
+                  <div class="number-review-wrapper">
+                     <div class="icon-regular w-embed">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M12.0002 16.695L6.71043 19.656L7.89168 13.71L3.44043 9.594L9.46068 8.88L12.0002 3.375L14.5397 8.88L20.5599 9.594L16.1087 13.71L17.2899 19.656L12.0002 16.695Z" fill="#FDD540"/>
+                        </svg>
+                     </div>
+                     <div class="icon-regular w-embed">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M12.0002 16.695L6.71043 19.656L7.89168 13.71L3.44043 9.594L9.46068 8.88L12.0002 3.375L14.5397 8.88L20.5599 9.594L16.1087 13.71L17.2899 19.656L12.0002 16.695Z" fill="#FDD540"/>
+                        </svg>
+                     </div>
+                     <div class="icon-regular w-embed">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M12.0002 16.695L6.71043 19.656L7.89168 13.71L3.44043 9.594L9.46068 8.88L12.0002 3.375L14.5397 8.88L20.5599 9.594L16.1087 13.71L17.2899 19.656L12.0002 16.695Z" fill="#FDD540"/>
+                        </svg>
+                     </div>
+                     <div class="icon-regular w-embed">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M12.0002 16.695L6.71043 19.656L7.89168 13.71L3.44043 9.594L9.46068 8.88L12.0002 3.375L14.5397 8.88L20.5599 9.594L16.1087 13.71L17.2899 19.656L12.0002 16.695Z" fill="#FDD540"/>
+                        </svg>
+                     </div>
+                     <div class="icon-regular w-embed">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M12.0002 16.695L6.71043 19.656L7.89168 13.71L3.44043 9.594L9.46068 8.88L12.0002 3.375L14.5397 8.88L20.5599 9.594L16.1087 13.71L17.2899 19.656L12.0002 16.695Z" fill="#FDD540"/>
+                        </svg>
+                     </div>
+                  </div>
+               </div>
+               <div class="number-item">
+                  <div class="block">
+                     <h3>4.8</h3>
+                     <p class="paragraph-regular text-color-gray-300">179 user reviews</p>
+                  </div>
+                  <div class="number-review-wrapper">
+                     <div class="icon-regular w-embed">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M12.0002 16.695L6.71043 19.656L7.89168 13.71L3.44043 9.594L9.46068 8.88L12.0002 3.375L14.5397 8.88L20.5599 9.594L16.1087 13.71L17.2899 19.656L12.0002 16.695Z" fill="#FDD540"/>
+                        </svg>
+                     </div>
+                     <div class="icon-regular w-embed">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M12.0002 16.695L6.71043 19.656L7.89168 13.71L3.44043 9.594L9.46068 8.88L12.0002 3.375L14.5397 8.88L20.5599 9.594L16.1087 13.71L17.2899 19.656L12.0002 16.695Z" fill="#FDD540"/>
+                        </svg>
+                     </div>
+                     <div class="icon-regular w-embed">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M12.0002 16.695L6.71043 19.656L7.89168 13.71L3.44043 9.594L9.46068 8.88L12.0002 3.375L14.5397 8.88L20.5599 9.594L16.1087 13.71L17.2899 19.656L12.0002 16.695Z" fill="#FDD540"/>
+                        </svg>
+                     </div>
+                     <div class="icon-regular w-embed">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M12.0002 16.695L6.71043 19.656L7.89168 13.71L3.44043 9.594L9.46068 8.88L12.0002 3.375L14.5397 8.88L20.5599 9.594L16.1087 13.71L17.2899 19.656L12.0002 16.695Z" fill="#FDD540"/>
+                        </svg>
+                     </div>
+                     <div class="icon-regular w-embed">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M12.0002 16.695L6.71043 19.656L7.89168 13.71L3.44043 9.594L9.46068 8.88L12.0002 3.375L14.5397 8.88L20.5599 9.594L16.1087 13.71L17.2899 19.656L12.0002 16.695Z" fill="#FDD540"/>
+                        </svg>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div data-w-id="a5d24a74-9944-c360-3e5b-b1f40ba8e9ef" style="-webkit-transform:translate3d(0, 44px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 44px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 44px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 44px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="testimonial-block">
+            <div class="container-x-small">
+               <div class="testimonial-title-wrapper">
+                  <div class="detail-large">TESTIMONIALS</div>
+                  <h3>See what our customers had to say.</h3>
+               </div>
+               <div class="testimonial-wrapper">
+                  <div class="w-layout-grid testimonial-grid">
+                     <div id="w-node-_15a4ee65-7bff-5ddc-cd93-af58fcbef78c-ca35907e" class="testimonial-card">
+                        <div class="testimonial-avatar"><img src="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/63d92f46c88a747de14e31d4_Avatar%2001.png" loading="lazy" alt="" class="image-cover"/></div>
+                        <p class="paragraph-large">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut metus nunc, fermentum id ex non, dapibus hendrerit eros. Integer mollis quam.</p>
+                        <div class="block">
+                           <h6>John Smith</h6>
+                           <p class="paragraph-regular text-color-gray-700">www.flowbase.co</p>
+                        </div>
+                     </div>
+                     <div id="w-node-adaa4257-4998-a4f4-94bf-ca3e4fc1360d-ca35907e" class="testimonial-card">
+                        <div class="testimonial-avatar"><img src="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/63d92f46b7af2d131639c3ec_Avatar%2004.png" loading="lazy" alt="" class="image-cover"/></div>
+                        <p class="paragraph-large">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut metus nunc, fermentum id ex non, dapibus hendrerit eros. Integer mollis quam.</p>
+                        <div class="block">
+                           <h6>Cody Fisher</h6>
+                           <p class="paragraph-regular text-color-gray-700">www.flowbase.co</p>
+                        </div>
+                     </div>
+                     <div id="w-node-_8d374ca8-d79d-c35e-7c7a-8ae0c5b8c460-ca35907e" class="testimonial-card">
+                        <div class="testimonial-avatar"><img src="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/63d92f46f723fc82d7fd1227_Avatar%2002.png" loading="lazy" alt="" class="image-cover"/></div>
+                        <p class="paragraph-large">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut metus nunc, fermentum id ex non, dapibus hendrerit eros. Integer mollis quam.</p>
+                        <div class="block">
+                           <h6>Robert Fox</h6>
+                           <p class="paragraph-regular text-color-gray-700">www.flowbase.co</p>
+                        </div>
+                     </div>
+                     <div id="w-node-_37c18087-9815-68f6-227b-986b4d498789-ca35907e" class="testimonial-card">
+                        <div class="testimonial-avatar"><img src="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/63d92f46345a641f97cba16c_Avatar%2003.png" loading="lazy" alt="" class="image-cover"/></div>
+                        <p class="paragraph-large">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut metus nunc, fermentum id ex non, dapibus hendrerit eros. Integer mollis quam.</p>
+                        <div class="block">
+                           <h6>Sarah Smith</h6>
+                           <p class="paragraph-regular text-color-gray-700">www.flowbase.co</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="section-small">
+         <div data-w-id="3745f596-6313-fa0d-0819-1f99606ffde3" class="container-regular">
+            <div data-w-id="3745f596-6313-fa0d-0819-1f99606ffde4" class="cta-block">
+               <div class="w-layout-grid cta-grid">
+                  <h4 id="w-node-_3745f596-6313-fa0d-0819-1f99606ffde7-606ffde2">Save time and build better products faster.</h4>
+                  <div id="w-node-_3745f596-6313-fa0d-0819-1f99606ffde9-606ffde2" class="cta-content">
+                     <div class="margin-bottom-16">
+                        <p class="paragraph-large text-color-gray-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut metus nunc.</p>
+                     </div>
+                     <div class="cta-button-wrapper">
+                        <a href="/pricing" class="button-right-icon w-inline-block">
+                           <div>Get Started</div>
+                           <div class="button-icon w-embed">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                 <path d="M14.6075 11.3572L11.255 7.90897L12.1388 7L17 12L12.1388 17L11.255 16.091L14.6075 12.6428H7V11.3572H14.6075Z" fill="currentColor"/>
+                              </svg>
+                           </div>
+                        </a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="section-regular">
+         <div data-w-id="f8dba1a4-6df8-034e-27cf-87c4368d0143" style="-webkit-transform:translate3d(0, 44px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 44px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 44px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 44px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="container-x-small">
+            <div class="integration-title-wrapper">
+               <div class="detail-large">INTEGRATIONS</div>
+               <h3>Deploy your project with the right tools</h3>
+            </div>
+            <div class="w-dyn-list">
+               <div role="list" class="integration-grid w-dyn-items">
+                  <div role="listitem" class="w-dyn-item">
+                     <a href="/integration/figma" class="integration-card w-inline-block">
+                        <div class="integration-card-detail">
+                           <div class="integration-card-icon"><img loading="lazy" alt="" src="https://assets.website-files.com/63f62e5dcacb200415e37181/63f6bfcce95619358c8b6790_Slack.svg"/></div>
+                           <div class="block">
+                              <h6>Figma</h6>
+                              <p class="paragraph-regular text-color-gray-700">Design Tool</p>
+                           </div>
+                        </div>
+                        <div class="button-card">
+                           <div class="icon-regular w-embed">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                 <path d="M14.6075 11.3572L11.255 7.90897L12.1388 7L17 12L12.1388 17L11.255 16.091L14.6075 12.6428H7V11.3572H14.6075Z" fill="currentColor"/>
+                              </svg>
+                           </div>
+                        </div>
+                     </a>
+                  </div>
+                  <div role="listitem" class="w-dyn-item">
+                     <a href="/integration/discord" class="integration-card w-inline-block">
+                        <div class="integration-card-detail">
+                           <div class="integration-card-icon"><img loading="lazy" alt="" src="https://assets.website-files.com/63f62e5dcacb200415e37181/63f6bfffe95619eafa8b738b_Discord.svg"/></div>
+                           <div class="block">
+                              <h6>Discord</h6>
+                              <p class="paragraph-regular text-color-gray-700">Chat Service</p>
+                           </div>
+                        </div>
+                        <div class="button-card">
+                           <div class="icon-regular w-embed">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                 <path d="M14.6075 11.3572L11.255 7.90897L12.1388 7L17 12L12.1388 17L11.255 16.091L14.6075 12.6428H7V11.3572H14.6075Z" fill="currentColor"/>
+                              </svg>
+                           </div>
+                        </div>
+                     </a>
+                  </div>
+                  <div role="listitem" class="w-dyn-item">
+                     <a href="/integration/mailchimp" class="integration-card w-inline-block">
+                        <div class="integration-card-detail">
+                           <div class="integration-card-icon"><img loading="lazy" alt="" src="https://assets.website-files.com/63f62e5dcacb200415e37181/63f6bff500952f63c4f1c89f_MailC.svg"/></div>
+                           <div class="block">
+                              <h6>Mailchimp</h6>
+                              <p class="paragraph-regular text-color-gray-700">Mail Service</p>
+                           </div>
+                        </div>
+                        <div class="button-card">
+                           <div class="icon-regular w-embed">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                 <path d="M14.6075 11.3572L11.255 7.90897L12.1388 7L17 12L12.1388 17L11.255 16.091L14.6075 12.6428H7V11.3572H14.6075Z" fill="currentColor"/>
+                              </svg>
+                           </div>
+                        </div>
+                     </a>
+                  </div>
+                  <div role="listitem" class="w-dyn-item">
+                     <a href="/integration/facebook" class="integration-card w-inline-block">
+                        <div class="integration-card-detail">
+                           <div class="integration-card-icon"><img loading="lazy" alt="" src="https://assets.website-files.com/63f62e5dcacb200415e37181/63f6bfe95557f9668d768d4b_Facebook.svg"/></div>
+                           <div class="block">
+                              <h6>Facebook</h6>
+                              <p class="paragraph-regular text-color-gray-700">Social Media</p>
+                           </div>
+                        </div>
+                        <div class="button-card">
+                           <div class="icon-regular w-embed">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                 <path d="M14.6075 11.3572L11.255 7.90897L12.1388 7L17 12L12.1388 17L11.255 16.091L14.6075 12.6428H7V11.3572H14.6075Z" fill="currentColor"/>
+                              </svg>
+                           </div>
+                        </div>
+                     </a>
+                  </div>
+                  <div role="listitem" class="w-dyn-item">
+                     <a href="/integration/trello" class="integration-card w-inline-block">
+                        <div class="integration-card-detail">
+                           <div class="integration-card-icon"><img loading="lazy" alt="" src="https://assets.website-files.com/63f62e5dcacb200415e37181/63f6bfdc00952f2f29f1c591_Trello.svg"/></div>
+                           <div class="block">
+                              <h6>Trello</h6>
+                              <p class="paragraph-regular text-color-gray-700">Note Service</p>
+                           </div>
+                        </div>
+                        <div class="button-card">
+                           <div class="icon-regular w-embed">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                 <path d="M14.6075 11.3572L11.255 7.90897L12.1388 7L17 12L12.1388 17L11.255 16.091L14.6075 12.6428H7V11.3572H14.6075Z" fill="currentColor"/>
+                              </svg>
+                           </div>
+                        </div>
+                     </a>
+                  </div>
+                  <div role="listitem" class="w-dyn-item">
+                     <a href="/integration/slack" class="integration-card w-inline-block">
+                        <div class="integration-card-detail">
+                           <div class="integration-card-icon"><img loading="lazy" alt="" src="https://assets.website-files.com/63f62e5dcacb200415e37181/63f6bfcce95619358c8b6790_Slack.svg"/></div>
+                           <div class="block">
+                              <h6>Slack</h6>
+                              <p class="paragraph-regular text-color-gray-700">Communication</p>
+                           </div>
+                        </div>
+                        <div class="button-card">
+                           <div class="icon-regular w-embed">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                 <path d="M14.6075 11.3572L11.255 7.90897L12.1388 7L17 12L12.1388 17L11.255 16.091L14.6075 12.6428H7V11.3572H14.6075Z" fill="currentColor"/>
+                              </svg>
+                           </div>
+                        </div>
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="section-blog">
+         <div data-w-id="96f614ad-382c-cef8-a781-4bb5da815a54" class="container-large">
+            <div class="blog-title-wrapper">
+               <div class="detail-large">Blog</div>
+               <h3>Take a look at the latest articles from</h3>
+            </div>
+            <div class="w-dyn-list">
+               <div role="list" class="blog-grid w-dyn-items">
+                  <div role="listitem" class="w-dyn-item">
+                     <a href="/blog/build-your-dream-site-with-webflow-cms" class="blog-card w-inline-block">
+                        <div class="blog-image-wrapper"><img loading="lazy" alt="" src="https://assets.website-files.com/63f62e5dcacb200415e37181/63f6d2800c83402fa74895a1_Thumbnail%2001.png" class="image-cover"/></div>
+                        <div class="blog-card-detail">
+                           <div style="background-color:#ffad99" class="blog-badge">
+                              <div>Organization</div>
+                           </div>
+                           <h6>Build your dream site with Webflow CMS</h6>
+                           <div class="blog-divider"></div>
+                           <div class="blog-date">
+                              <div class="label-small">February 28, 2023</div>
+                              <div class="blog-divider-small"></div>
+                              <div class="label-small">4 min read</div>
+                           </div>
+                        </div>
+                     </a>
+                  </div>
+                  <div role="listitem" class="w-dyn-item">
+                     <a href="/blog/webflow-vs-framer-which-one-is-best-for-you-and-your-business" class="blog-card w-inline-block">
+                        <div class="blog-image-wrapper"><img loading="lazy" alt="" src="https://assets.website-files.com/63f62e5dcacb200415e37181/63f81d6a59c178e8d193a6cc_Thumbnail%2004.png" sizes="(max-width: 479px) 80vw, (max-width: 767px) 84vw, (max-width: 991px) 38vw, 23vw" srcset="https://assets.website-files.com/63f62e5dcacb200415e37181/63f81d6a59c178e8d193a6cc_Thumbnail%2004-p-500.png 500w, https://assets.website-files.com/63f62e5dcacb200415e37181/63f81d6a59c178e8d193a6cc_Thumbnail%2004.png 704w" class="image-cover"/></div>
+                        <div class="blog-card-detail">
+                           <div style="background-color:#bcb8ff" class="blog-badge">
+                              <div>Design</div>
+                           </div>
+                           <h6>Webflow vs Framer - Which one is best for you and your business.</h6>
+                           <div class="blog-divider"></div>
+                           <div class="blog-date">
+                              <div class="label-small">February 24, 2023</div>
+                              <div class="blog-divider-small"></div>
+                              <div class="label-small">4 min read</div>
+                           </div>
+                        </div>
+                     </a>
+                  </div>
+                  <div role="listitem" class="w-dyn-item">
+                     <a href="/blog/the-top-10-templates-to-start-building-your-beautiful-website" class="blog-card w-inline-block">
+                        <div class="blog-image-wrapper"><img loading="lazy" alt="" src="https://assets.website-files.com/63f62e5dcacb200415e37181/63f6d3119fe0148f1248407d_Thumbnail%2003.png" sizes="(max-width: 479px) 80vw, (max-width: 767px) 84vw, (max-width: 991px) 38vw, 23vw" srcset="https://assets.website-files.com/63f62e5dcacb200415e37181/63f6d3119fe0148f1248407d_Thumbnail%2003-p-500.png 500w, https://assets.website-files.com/63f62e5dcacb200415e37181/63f6d3119fe0148f1248407d_Thumbnail%2003.png 704w" class="image-cover"/></div>
+                        <div class="blog-card-detail">
+                           <div style="background-color:#ffeb99" class="blog-badge">
+                              <div>Development</div>
+                           </div>
+                           <h6>The top 10 templates to start building your beautiful website</h6>
+                           <div class="blog-divider"></div>
+                           <div class="blog-date">
+                              <div class="label-small">February 23, 2023</div>
+                              <div class="blog-divider-small"></div>
+                              <div class="label-small">7 min read</div>
+                           </div>
+                        </div>
+                     </a>
+                  </div>
+               </div>
+            </div>
+            <div class="blog-button-wrapper"><a href="/blog" class="button-outline w-button">See All</a></div>
+         </div>
+         <div data-w-id="96f614ad-382c-cef8-a781-4bb5da815a53" class="block-gray"></div>
+      </div>
+      <div class="section-footer">
+         <div data-w-id="daf5f210-81aa-013d-a9eb-cddcc29f8bad" class="footer-block">
+            <div class="container-small">
+               <div class="footer-grid">
+                  <div id="w-node-daf5f210-81aa-013d-a9eb-cddcc29f8bb0-c29f8bac">
+                     <a href="#" class="footer-logo w-inline-block"><img src="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/63da5d0e52b1198118dd418b_Footer%20Logo.svg" loading="lazy" alt="" class="logo"/></a>
+                     <p class="paragraph-small text-color-gray-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ante dui Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ante dui</p>
+                     <div class="footer-social-links">
+                        <a href="#" class="footer-social-link w-inline-block">
+                           <div class="icon-regular w-embed">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                 <path d="M12 4.5C7.85775 4.5 4.5 7.85775 4.5 12C4.5 15.7432 7.24275 18.846 10.8285 19.4093V14.1675H8.9235V12H10.8285V10.3477C10.8285 8.46825 11.9475 7.43025 13.6613 7.43025C14.4818 7.43025 15.3397 7.5765 15.3397 7.5765V9.4215H14.3947C13.4625 9.4215 13.1722 9.99975 13.1722 10.593V12H15.252L14.9198 14.1675H13.1722V19.4093C16.7572 18.8468 19.5 15.7425 19.5 12C19.5 7.85775 16.1423 4.5 12 4.5Z" fill="currentColor"/>
+                              </svg>
+                           </div>
+                        </a>
+                        <a href="#" class="footer-social-link w-inline-block">
+                           <div class="icon-regular w-embed">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                 <path d="M12 4.5C14.0378 4.5 14.292 4.5075 15.0915 4.545C15.8903 4.5825 16.434 4.70775 16.9125 4.89375C17.4075 5.08425 17.8245 5.34225 18.2415 5.7585C18.6229 6.13342 18.918 6.58694 19.1063 7.0875C19.2915 7.56525 19.4175 8.10975 19.455 8.9085C19.4903 9.708 19.5 9.96225 19.5 12C19.5 14.0378 19.4925 14.292 19.455 15.0915C19.4175 15.8903 19.2915 16.434 19.1063 16.9125C18.9185 17.4133 18.6233 17.867 18.2415 18.2415C17.8665 18.6227 17.413 18.9178 16.9125 19.1063C16.4347 19.2915 15.8903 19.4175 15.0915 19.455C14.292 19.4903 14.0378 19.5 12 19.5C9.96225 19.5 9.708 19.4925 8.9085 19.455C8.10975 19.4175 7.566 19.2915 7.0875 19.1063C6.58674 18.9184 6.13315 18.6232 5.7585 18.2415C5.37705 17.8666 5.08195 17.4131 4.89375 16.9125C4.70775 16.4347 4.5825 15.8903 4.545 15.0915C4.50975 14.292 4.5 14.0378 4.5 12C4.5 9.96225 4.5075 9.708 4.545 8.9085C4.5825 8.109 4.70775 7.566 4.89375 7.0875C5.08143 6.58663 5.3766 6.13299 5.7585 5.7585C6.13325 5.37692 6.58682 5.0818 7.0875 4.89375C7.566 4.70775 8.109 4.5825 8.9085 4.545C9.708 4.50975 9.96225 4.5 12 4.5ZM12 8.25C11.0054 8.25 10.0516 8.64509 9.34835 9.34835C8.64509 10.0516 8.25 11.0054 8.25 12C8.25 12.9946 8.64509 13.9484 9.34835 14.6517C10.0516 15.3549 11.0054 15.75 12 15.75C12.9946 15.75 13.9484 15.3549 14.6517 14.6517C15.3549 13.9484 15.75 12.9946 15.75 12C15.75 11.0054 15.3549 10.0516 14.6517 9.34835C13.9484 8.64509 12.9946 8.25 12 8.25ZM16.875 8.0625C16.875 7.81386 16.7762 7.5754 16.6004 7.39959C16.4246 7.22377 16.1861 7.125 15.9375 7.125C15.6889 7.125 15.4504 7.22377 15.2746 7.39959C15.0988 7.5754 15 7.81386 15 8.0625C15 8.31114 15.0988 8.5496 15.2746 8.72541C15.4504 8.90123 15.6889 9 15.9375 9C16.1861 9 16.4246 8.90123 16.6004 8.72541C16.7762 8.5496 16.875 8.31114 16.875 8.0625ZM12 9.75C12.5967 9.75 13.169 9.98705 13.591 10.409C14.0129 10.831 14.25 11.4033 14.25 12C14.25 12.5967 14.0129 13.169 13.591 13.591C13.169 14.0129 12.5967 14.25 12 14.25C11.4033 14.25 10.831 14.0129 10.409 13.591C9.98705 13.169 9.75 12.5967 9.75 12C9.75 11.4033 9.98705 10.831 10.409 10.409C10.831 9.98705 11.4033 9.75 12 9.75Z" fill="currentColor"/>
+                              </svg>
+                           </div>
+                        </a>
+                        <a href="#" class="footer-social-link w-inline-block">
+                           <div class="icon-regular w-embed">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                 <path d="M19.6212 7.24219C19.0487 7.49546 18.4415 7.66179 17.8197 7.73569C18.475 7.34376 18.9655 6.72695 19.1997 6.00019C18.5847 6.36619 17.9105 6.62269 17.2077 6.76144C16.7357 6.25637 16.11 5.92141 15.428 5.80863C14.7459 5.69584 14.0457 5.81156 13.4362 6.13778C12.8267 6.464 12.342 6.98245 12.0576 7.61253C11.7731 8.24262 11.7048 8.94902 11.8632 9.62194C10.6161 9.55943 9.39598 9.23533 8.2822 8.67069C7.16842 8.10604 6.18583 7.31347 5.39823 6.34444C5.11945 6.82328 4.97295 7.36761 4.97373 7.92169C4.97373 9.00919 5.52723 9.96994 6.36873 10.5324C5.87074 10.5168 5.38371 10.3823 4.94823 10.1402V10.1792C4.94838 10.9035 5.19901 11.6054 5.65762 12.166C6.11623 12.7266 6.7546 13.1113 7.46448 13.2549C7.0022 13.3802 6.51746 13.3987 6.04698 13.3089C6.24713 13.9324 6.63724 14.4776 7.16268 14.8683C7.68812 15.259 8.32258 15.4755 8.97723 15.4877C8.32659 15.9987 7.58162 16.3764 6.78489 16.5993C5.98817 16.8222 5.15533 16.8859 4.33398 16.7867C5.76776 17.7088 7.43681 18.1983 9.14148 18.1967C14.9112 18.1967 18.0665 13.4169 18.0665 9.27169C18.0665 9.13669 18.0627 9.00019 18.0567 8.86669C18.6709 8.42281 19.2009 7.87295 19.622 7.24294L19.6212 7.24219Z" fill="currentColor"/>
+                              </svg>
+                           </div>
+                        </a>
+                     </div>
+                  </div>
+                  <div id="w-node-daf5f210-81aa-013d-a9eb-cddcc29f8bbc-c29f8bac" class="w-layout-grid footer-link-grid">
+                     <div id="w-node-daf5f210-81aa-013d-a9eb-cddcc29f8bbd-c29f8bac" class="footer-link-column">
+                        <div class="footer-title">Pages</div>
+                        <a href="/" class="footer-link">Overview</a><a href="/home" aria-current="page" class="footer-link w--current">Home</a><a href="/about" class="footer-link">About</a><a href="/features" class="footer-link">Features</a><a href="/pricing" class="footer-link">Pricing</a>
+                     </div>
+                     <div id="w-node-daf5f210-81aa-013d-a9eb-cddcc29f8bc8-c29f8bac" class="footer-link-column">
+                        <div class="footer-title">Company</div>
+                        <a href="https://cubex-template.webflow.io/integration/slack" class="footer-link">Integration</a><a href="/blog" class="footer-link">Blog</a><a href="https://cubex-template.webflow.io/blog/why-should-you-move-your-website-to-webflow" class="footer-link">Blog Article</a><a href="/contact" class="footer-link">Contact</a>
+                     </div>
+                     <div id="w-node-daf5f210-81aa-013d-a9eb-cddcc29f8bd3-c29f8bac" class="footer-link-column">
+                        <div class="footer-title">Contact</div>
+                        <a href="/account/register" class="footer-link">Login</a><a href="/account/login" class="footer-link">Register</a><a href="/account/forgot-password" class="footer-link">Forgot Password</a><a href="/account/update-password" class="footer-link">Update Password</a>
+                     </div>
+                  </div>
+               </div>
+               <div class="footer-divider"></div>
+               <div class="footer-bottom">
+                  <div class="paragraph-small">Copyright © Cubex Theme - Powered by <a href="http://webflow.com" target="_blank" class="span-link">Webflow</a> Built by <a href="http://www.flowbase.co" target="_blank" class="span-link">Flowbase</a></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=63d8bb043a5c9071ccfdd0cc" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script><script src="https://assets.website-files.com/63d8bb043a5c9071ccfdd0cc/js/cubex-template.f287ce5c7.js" type="text/javascript"></script>
+   </body>
+</html>
